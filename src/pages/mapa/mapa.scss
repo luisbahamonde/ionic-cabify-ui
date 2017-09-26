@@ -4,4 +4,12 @@ ion-app._gmaps_cdv_ .nav-decor{
 
 page-mapa {
 
+  .scroll-content {
+    //height: 0;
+    width: 10%;
+  }
+
+  .fixed-content {
+    height: 0;
+  }
 }

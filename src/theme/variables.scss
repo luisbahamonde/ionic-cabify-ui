@@ -38,7 +38,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222222,
+  transparent: transparent
 );
 
 
@@ -46,6 +47,7 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+$toolbar-ios-border-color: transparent;
 
 
 
@@ -79,6 +81,7 @@ $colors: (
 // http://ionicframework.com/docs/ionicons/
 
 @import "ionic.ionicons";
+@import "navbar";
 
 
 // Fonts

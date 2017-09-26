@@ -12,7 +12,10 @@ import {GoogleMaps, Spherical} from '@ionic-native/google-maps'
   declarations: [MyApp],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      menuType: 'overlay'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp],

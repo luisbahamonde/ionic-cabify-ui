@@ -1,0 +1,40 @@
+ion-header {
+  //border-top: solid 8px #005f64;
+
+  .perfil-button {
+    background: #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &.bar-button-menutoggle-ios{
+
+      width: 36px !important;
+      height: 36px !important;
+    }
+
+    &.bar-button-menutoggle-md {
+
+      width: 45px !important;
+      height: 45px !important;
+
+      img {
+        max-width: 120% !important;
+      }
+    }
+  }
+
+  .avatar {
+    background: none;
+
+    .item-inner {
+      ion-label{
+
+        p, h1, h2, h3, h3 {
+
+          color: #fff;
+        }
+      }
+      border-bottom: none !important;
+    }
+  }
+}
