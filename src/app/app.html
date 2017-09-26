@@ -1,4 +1,4 @@
-<ion-menu class="menu-principal" [content]="mycontent">
+<ion-menu class="menu-principal" [content]="mycontent" (ionOpen)="menuOpened()" (ionClose)="menuClosed()">
 
   <ion-header>
     <ion-toolbar>

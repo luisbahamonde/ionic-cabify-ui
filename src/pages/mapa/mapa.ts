@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
 
 
@@ -16,10 +16,18 @@ export class MapaPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public googleMaps: GoogleMaps
+    public googleMaps: GoogleMaps,
+    public events: Events
   ) {
 
+    events.subscribe('map:block', (bloquar:boolean) => {
 
+      if(this.map){
+
+        this.map.setClickable(!bloquar);
+      }
+
+    });
   }
 
   ionViewDidLoad() {
@@ -37,6 +45,7 @@ export class MapaPage {
     this.map = this.googleMaps.create(this.mapElement);
 
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+
       console.log('Map is ready!');
     });
   }
