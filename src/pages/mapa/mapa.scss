@@ -12,4 +12,16 @@ page-mapa {
   .fixed-content {
     height: 0;
   }
+
+  ion-footer{
+    padding: 10px !important;
+
+    button {
+      margin: 0 !important;
+      font-weight: bold;
+      font-size: 1.4rem !important;
+      height: 3.2em !important;
+    }
+
+  }
 }

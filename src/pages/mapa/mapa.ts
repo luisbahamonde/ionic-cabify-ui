@@ -34,7 +34,7 @@ export class MapaPage {
 
     setTimeout( ()=>{
       this.loadMap();
-    }, 1000);
+    }, 800);
   }
 
   loadMap() {
