@@ -45,7 +45,7 @@ export class MapaPage {
           lat: 40.0741904,
           lng: -3.3809802
         },
-        zoom: 8,
+        zoom: 5,
       },
       styles: [
 
