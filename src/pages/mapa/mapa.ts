@@ -1,25 +1,24 @@
-import { ViewChild, Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
-//import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, GoogleMapsMapTypeId, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
 
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-mapa',
+  templateUrl: 'mapa.html',
 })
-export class HomePage {
-
-  //@ViewChild('map') mapElement;
-
+export class MapaPage {
 
   map: GoogleMap;
   mapElement: HTMLElement;
 
   constructor(
     public navCtrl: NavController,
-    public googleMaps: GoogleMaps,
-    public platform: Platform
+    public navParams: NavParams,
+    public googleMaps: GoogleMaps
   ) {
+
 
   }
 
@@ -41,4 +40,5 @@ export class HomePage {
       console.log('Map is ready!');
     });
   }
+
 }
