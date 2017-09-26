@@ -18,8 +18,15 @@ export class MyApp {
   ) {
 
     platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+
+
+      setTimeout(()=>{
+
+        statusBar.styleDefault();
+        splashScreen.hide();
+
+      },1000);
+
     });
   }
 
