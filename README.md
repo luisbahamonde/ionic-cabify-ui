@@ -18,9 +18,13 @@ $ git clone https://github.com/luisbahamonde/ionic-cabify-ui.git
 $ cd ionic-cabify-ui
 ```
 
+añade la plataforma y listo ;)
+
 ```bash
 $ ionic cordova platform add ios
 ```
+
+*Made with ♡ by [Luis Bahamonde](https://roocket.io) | [Roocket Labs](https://roocket.io)*
 
 
 
