@@ -5,7 +5,7 @@ La única finalidad de esta plantilla es servir a modo de ejemplo. Todas las [ap
 
 ### Instalación
 
-Instalacion de la ultima version disponible de ionic y codova.
+Instalacion de la última versión disponible de ionic y codova.
 
 ```bash
 $ sudo npm install -g ionic cordova
