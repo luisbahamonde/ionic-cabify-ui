@@ -10,10 +10,8 @@
 
 </ion-header>
 
-<ion-content no-bounce fullscreen id="map">
-
-</ion-content>
+<ion-content no-bounce fullscreen id="map"></ion-content>
 
 <ion-footer>
-  <button ion-button block> Siguiente paso</button>
+  <button [ngClass]="{'en_movimiento': classTransActive }" ion-button block>Siguiente paso</button>
 </ion-footer>

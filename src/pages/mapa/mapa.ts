@@ -1,23 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, Platform, Events } from 'ionic-angular';
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions } from '@ionic-native/google-maps';
 
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions } from '@ionic-native/google-maps';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
   selector: 'page-mapa',
   templateUrl: 'mapa.html',
 })
+
+/**
+ * MAP EVENTS *************************************************
+ *
+ * MAP_READY: 'map_ready',
+ * MAP_LOADED: 'map_loaded',
+ * MAP_CLICK: 'map_click',
+ * MAP_LONG_CLICK: 'map_long_click',
+ * MY_LOCATION_BUTTON_CLICK: 'my_location_button_click',
+ * INDOOR_BUILDING_FOCUSED: 'indoor_building_focused',
+ * INDOOR_LEVEL_ACTIVATED: 'indoor_level_activated',
+ * CAMERA_MOVE_START: 'camera_move_start',
+ * CAMERA_MOVE: 'camera_move',
+ * CAMERA_MOVE_END: 'camera_move_end',
+ * OVERLAY_CLICK: 'overlay_click',
+ * POLYGON_CLICK: 'polygon_click',
+ * POLYLINE_CLICK: 'polyline_click',
+ * CIRCLE_CLICK: 'circle_click',
+ * GROUND_OVERLAY_CLICK: 'groundoverlay_click',
+ * INFO_CLICK: 'info_click',
+ * INFO_LONG_CLICK: 'info_long_click',
+ * INFO_CLOSE: 'info_close',
+ * INFO_OPEN: 'info_open',
+ * CLUSTER_CLICK: 'cluster_click',
+ * MARKER_CLICK: 'marker_click',
+ * MARKER_DRAG: 'marker_drag',
+ * MARKER_DRAG_START: 'marker_drag_start',
+ * MARKER_DRAG_END: 'marker_drag_end',
+ * MAP_DRAG: 'map_drag',
+ * MAP_DRAG_START: 'map_drag_start',
+ * MAP_DRAG_END: 'map_drag_end'
+ */
+
 export class MapaPage {
 
+  zone:any;
   map: GoogleMap;
   mapElement: HTMLElement;
+
+  classTransActive:boolean = false;
 
   constructor(
     platform: Platform,
     public googleMaps: GoogleMaps,
-    public events: Events
+    public events: Events,
+    private geolocation: Geolocation,
+    public ngZone: NgZone
   ) {
+
+    this.zone = new NgZone({ enableLongStackTrace: false });
 
     platform.ready().then(() => {
 
@@ -39,6 +80,7 @@ export class MapaPage {
 
   }
 
+
   loadMap() {
 
     let mapOptions: GoogleMapOptions = {
@@ -47,7 +89,18 @@ export class MapaPage {
           lat: 40.0741904,
           lng: -3.3809802
         },
-        zoom: 5,
+        zoom: 10,
+      },
+      controls:{
+        myLocationButton:false,
+        compass:false,
+        mapToolbar:false
+      },
+      preferences:{
+
+        padding: {
+
+        },
       },
       styles: [
         {
@@ -369,14 +422,56 @@ export class MapaPage {
     };
 
     this.mapElement = document.getElementById('map');
-
-    //this.map = new GoogleMap(this.mapElement);
     this.map = this.googleMaps.create(this.mapElement, mapOptions);
 
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
 
-      console.log('Map is ready!');
+      this.locateMe();
+
+    });
+
+    this.map.on(GoogleMapsEvent.CAMERA_MOVE_START).subscribe(() => {
+
+      this.toggleTrans();
+    });
+
+    this.map.on(GoogleMapsEvent.CAMERA_MOVE_END).subscribe(() => {
+
+      this.toggleTrans();
     });
   }
 
+  toggleTrans(){
+    this.zone.run(() => {
+      this.classTransActive = !this.classTransActive;
+    });
+  }
+
+  locateMe(){
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+
+
+      this.map.animateCamera({
+        target: {
+          lat: resp.coords.latitude,
+          lng: resp.coords.longitude
+        },
+        zoom: 15,
+        duration: 1000
+      });
+
+      this.map.setMyLocationEnabled(true);
+      this.map.setOptions({
+        controls:{
+        myLocationButton:false,
+        compass:false,
+        mapToolbar:false
+      }});
+
+    }).catch((error) => {
+
+      console.log('Error getting location', error);
+    });
+  }
 }
