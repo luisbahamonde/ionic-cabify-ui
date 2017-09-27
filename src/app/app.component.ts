@@ -25,7 +25,7 @@ export class MyApp {
         statusBar.styleDefault();
         splashScreen.hide();
 
-      },3000);
+      },2000);
 
     });
   }

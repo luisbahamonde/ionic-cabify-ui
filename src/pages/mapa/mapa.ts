@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, Platform, Events } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions } from '@ionic-native/google-maps';
 
 
@@ -14,11 +14,16 @@ export class MapaPage {
   mapElement: HTMLElement;
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
+    platform: Platform,
     public googleMaps: GoogleMaps,
     public events: Events
   ) {
+
+    platform.ready().then(() => {
+
+      this.loadMap();
+
+    });
 
     events.subscribe('map:block', (bloquar:boolean) => {
 
@@ -32,9 +37,6 @@ export class MapaPage {
 
   ionViewDidLoad() {
 
-    setTimeout( ()=>{
-      this.loadMap();
-    }, 800);
   }
 
   loadMap() {
