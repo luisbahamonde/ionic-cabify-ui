@@ -1,8 +1,8 @@
 {
     "name": "maps",
-    "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "version": "1.0.0",
+    "author": "Luis Bahamonde",
+    "homepage": "https://roocket.io/",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
@@ -47,7 +47,7 @@
         "@ionic/app-scripts": "2.1.4",
         "typescript": "2.3.4"
     },
-    "description": "An Ionic project",
+    "description": "cabify user interface clone template",
     "cordova": {
         "plugins": {
             "cordova-plugin-googlemaps": {
@@ -63,7 +63,7 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-ionic-webview": {},
             "cordova-plugin-geolocation": {
-                "GEOLOCATION_USAGE_DESCRIPTION": " "
+                "GEOLOCATION_USAGE_DESCRIPTION": "Trace your location on the map"
             }
         },
         "platforms": [
