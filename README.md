@@ -1,7 +1,7 @@
 ## IONIC V3 CABIFY UI THEMPLATE
 
-Esto es una plantilla para ionic que pretende clonar el UI de la aplicacion cabify utilizando los [componentes](http://ionicframework.com/docs/components/) de ionic. La plantilla utiliza el api nativa de googlemaps por lo que solo funcioná en ios/android. 
-La única finalidad de esta plantilla es servir a modo de ejemplo. Todas las aportaciones y sugerencias seran bienvenidas
+Esto es una plantilla para [ionic](http://ionicframework.com/) que pretende clonar el UI de la aplicacion cabify utilizando los [componentes](http://ionicframework.com/docs/components/) de ionic. La plantilla utiliza el api nativa de googlemaps por lo que solo funcioná en ios/android. 
+La única finalidad de esta plantilla es servir a modo de ejemplo. Todas las [aportaciones](https://github.com/luisbahamonde/ionic-cabify-ui/pulls) y sugerencias seran bienvenidas
 
 ### Instalación
 
