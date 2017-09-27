@@ -1,24 +1,42 @@
 ion-header {
   //border-top: solid 8px #005f64;
 
-  .perfil-button {
-    background: #ccc;
-    border-radius: 50%;
-    overflow: hidden;
+  .contoles{
 
-    &.bar-button-menutoggle-ios{
+    background: #ffffff;
+    display: inline-block;
+    padding: 2px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.38);
 
-      width: 36px !important;
-      height: 36px !important;
+    button.button {
+      height: 2.4em !important;
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+
     }
+    .perfil-button {
+      margin: 0;
+      background: #ccc;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
 
-    &.bar-button-menutoggle-md {
+      &.bar-button-menutoggle-ios {
 
-      width: 45px !important;
-      height: 45px !important;
+        width: 36px !important;
+        height: 36px !important;
+      }
 
-      img {
-        max-width: 120% !important;
+      &.bar-button-menutoggle-md {
+
+        width: 45px !important;
+        height: 45px !important;
+
+        img {
+          max-width: 120% !important;
+        }
       }
     }
   }

@@ -100,6 +100,7 @@ export class MapaPage {
 
         padding: {
 
+          bottom: 60
         },
       },
       styles: [
