@@ -426,26 +426,29 @@ export class MapaPage {
 
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
 
+      this.map.setMyLocationEnabled(true);
       this.locateMe();
 
     });
 
     this.map.on(GoogleMapsEvent.CAMERA_MOVE_START).subscribe(() => {
 
-      this.toggleTrans();
+      this.toggleTrans(true);
     });
 
     this.map.on(GoogleMapsEvent.CAMERA_MOVE_END).subscribe(() => {
 
-      this.toggleTrans();
+      this.toggleTrans(false);
     });
   }
 
-  toggleTrans(){
+
+  toggleTrans(active){
     this.zone.run(() => {
-      this.classTransActive = !this.classTransActive;
+      this.classTransActive = active;
     });
   }
+
 
   locateMe(){
 
@@ -460,14 +463,6 @@ export class MapaPage {
         zoom: 15,
         duration: 1000
       });
-
-      this.map.setMyLocationEnabled(true);
-      this.map.setOptions({
-        controls:{
-        myLocationButton:false,
-        compass:false,
-        mapToolbar:false
-      }});
 
     }).catch((error) => {
 
