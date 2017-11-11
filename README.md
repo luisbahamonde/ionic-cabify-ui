@@ -12,11 +12,12 @@ $ sudo npm install -g ionic cordova
 
 ```
 
-después clona el proyecto
+después clona e instala proyecto
 
 ```bash
 $ git clone https://github.com/luisbahamonde/ionic-cabify-ui.git
 $ cd ionic-cabify-ui
+$ npm install
 ```
 
 añade la plataforma y listo ;)
@@ -25,7 +26,7 @@ añade la plataforma y listo ;)
 $ ionic cordova platform add ios
 ```
 
-*Made with ♡ by [Luis Bahamonde](https://roocket.io) | [Roocket Labs](https://roocket.io)*
+*Made with ♡ by [Roocket Labs](https://roocket.io)*
 
 
 
